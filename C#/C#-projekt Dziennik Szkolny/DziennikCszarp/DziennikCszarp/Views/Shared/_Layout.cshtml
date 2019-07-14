@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title — moja aplikacja platformy ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top: -50px !important;">
+        <a class="navbar-brand">@Html.ActionLink("Dziennik Szkolny", "Index", "Kids", null, new { style = "color: white; " })</a>
+        <a class="navbar-brand">@Html.ActionLink("Oceny", "Dzieciaki", "Kids", null, new { style = "color: white; " })</a>
+        <a class="navbar-brand">@Html.ActionLink("Obecnosci", "Dziecioki", "Kids", null, new { style = "color: white;" })</a>
+        <a href="@Url.Action("Index", "LoggingIn")" class="btn btn-dark btn-lg" style="position: absolute; right: 0;">Wyloguj</a>
+    </nav>
+<div class="container-fluid body-content">
+    @RenderBody()
+    <footer style="position: fixed; bottom: 0; width: 100%;">
+        <hr />
+        <p align="center" >&copy; Łukasz Kamiński </p>
+    </footer>
+</div>
+@RenderSection("scripts", required: false)
+</body>
+</html>

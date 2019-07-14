@@ -1,0 +1,27 @@
+﻿@model DziennikCszarp.Models.Kids
+@{
+    ViewBag.Title = "Obecnosci";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Presents", "Kids"))
+{
+    <h1>Wybierz Datę</h1>
+    <div class="form-group input-group-sm">
+        @Html.EditorFor(model => model.Date,
+            new
+            { data = Model.Date, htmlAttributes =
+                new
+                {
+                    @class = "form-control datepicker", required = "required"
+                }
+            })
+    </div>
+    <h1>Wybierz Dziecko</h1>
+    @Html.DropDownListFor(model => model.IDDziecka, Model.Dzieci, "Wybierz dziecko", 
+        new
+        {
+            @class = "form-control", size = "1", style ="max-width: 200px;", required = "required"
+        })
+    <br />
+    <input type="submit" value="Wyświetl" class="btn btn-dark " />
+}

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DziennikCszarp.Models.Oceny>
+
+
+@{
+    ViewBag.Title = "Oceny";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model.Count() < 1)
+{
+<h3>Brak zarejestrowanych ocen dla tego dziecka.</h3>
+}
+else
+{
+    <h2>Oceny</h2>
+    <table class="table  table-striped table-sm table-idx" style="border: 3px solid #000000 !important;">
+        <thead style="border: 3px solid #000000 !important;">
+            <tr class="table-dark" style="border: 3px solid #000000 !important;">
+                <th scope="col" style="border: 3px solid #000000 !important;">Imię</th>
+                <th scope="col" style="border: 3px solid #000000 !important;">Nazwisko</th>
+                <th scope="col" style="border: 3px solid #000000 !important;">Ocena</th>
+                <th scope="col" style="border: 3px solid #000000 !important;">Przedmiot</th>
+                <th scope="col" style="border: 3px solid #000000 !important;">Typ</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+        <tr style="border: 3px solid #000000 !important;">
+            <td style="border: 3px solid #000000 !important;">@item.Imie</td>
+            <td style="border: 3px solid #000000 !important;">@item.Nazwisko</td>
+            <td style="border: 3px solid #000000 !important;">@item.Ocena</td>
+            <td style="border: 3px solid #000000 !important;">@item.Przedmiot</td>
+            <td style="border: 3px solid #000000 !important;">@item.Typ</td> 
+        </tr>
+        }
+    </table>
+}

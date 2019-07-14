@@ -1,0 +1,20 @@
+﻿@model DziennikCszarp.Models.Kids
+@{
+    ViewBag.Title = "Ocenki";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Ocenki", "Kids"))
+{
+    @Html.ValidationSummary(true)
+    <h3>Wybierz Dziecko</h3>
+    @Html.DropDownListFor(model => model.IDDziecka, Model.Dzieci, "Wybierz dziecko", 
+        new
+        {
+            @class = "form-control", size = "1", style = "max-width: 200px;", required = "required"
+        })
+    <br/>
+    <input type="submit" value="Wyświetl" class="btn btn-dark " />
+}
+<div id="resultArea">
+</div>
+

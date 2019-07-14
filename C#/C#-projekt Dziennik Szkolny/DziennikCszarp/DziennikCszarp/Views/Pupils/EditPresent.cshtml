@@ -1,0 +1,102 @@
+﻿@model DziennikCszarp.Models.Obecnosci
+@{
+    ViewBag.Title = "EditPresent";
+    Layout = "~/Views/Shared/_LayoutN.cshtml";
+}
+@using (Html.BeginForm("EditPresent", "Pupils"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.IDObecnosci)
+    <div class="jumbotron" style="width: 50%; margin: auto;">
+        <h1 class="display-3">Edytuj Obecność</h1>
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDUcznia, new { @class = "control-label col-sm-2", style = "font-size: 15px" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.IDUcznia,
+                    new {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control",
+                            style = "width: 300px",
+                            disabled="disabled",
+                            required = "required"
+                        }
+                    })
+                @Html.ValidationMessageFor(model => model.IDUcznia, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Imie, new { @class = "control-label col-sm-2", style = "font-size: 15px" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Imie,
+                    new {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control",
+                            style = "width: 300px",
+                            disabled = "disabled",
+                            required = "required"
+                        }
+                    })
+                @Html.ValidationMessageFor(model => model.Imie, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nazwisko, new { @class = "control-label col-sm-2", style = "font-size: 15px" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Nazwisko,
+                    new {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control",
+                            style = "width: 300px",
+                            disabled = "disabled",
+                            required = "required"
+                        }
+                    })
+                @Html.ValidationMessageFor(model => model.Nazwisko, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, new { @class = "control-label col-sm-2", style = "font-size: 15px" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Date, new { data = Model.Date, htmlAttributes = new { @class = "form-control datepicker", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Date, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.GodzinaZajec, new { @class = "control-label col-sm-2", style = "font-size: 15px" })
+            <div class="col-sm-10">
+                @Html.DropDownListFor(model => model.GodzinaZajec, Model.Hours, null,
+                    new {
+                        @class = "form-control",
+                        size = "1",
+                        style = "width: 300px",
+                        required = "required"
+                    })
+                @Html.ValidationMessageFor(model => model.GodzinaZajec, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CzyObecny, new { @class = "control-label col-sm-2", style = "font-size: 15px" })
+            <div class="col-sm-10">
+                @Html.DropDownListFor(model => model.CzyObecny, Model.Obecny, null,
+                    new {
+                        @class = "form-control",
+                        size = "1",
+                        style = "width: 300px",
+                        required = "required"
+                    })
+                @Html.ValidationMessageFor(model => model.CzyObecny, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-8">
+                <input type="submit" value="Zatwierdź zmiany" class="btn btn-success btn-lg" />
+                <a href="@Url.Action("Presents", "Pupils")" class="btn btn-danger btn-lg">Anuluj</a>
+            </div>
+        </div>
+
+    </div>
+}

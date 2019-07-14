@@ -1,0 +1,42 @@
+﻿
+@model IEnumerable<DziennikCszarp.Models.Obecnosci>
+@{
+    /**/
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model.Count() < 1)
+{
+<h3>Brak zarejestrowanych rekordów tego dnia związanych z obecnością.</h3>
+}
+else
+{
+    <h2>Obecności</h2>
+    <table class="table table-bordered table-striped table-sm table-idx" style="border: 3px solid #000000 !important;">
+        <thead>
+            <tr class="table-dark" style="border: 3px solid #000000 !important;">
+                <th scope="col" style="border: 3px solid #000000 !important;">Data</th>
+                <th scope="col" style="border: 3px solid #000000 !important;">GodzinaZajec</th>
+                <th scope="col" style="border: 3px solid #000000 !important;">Przedmiot</th>
+                <th scope="col" style="border: 3px solid #000000 !important;">Imię</th>
+                <th scope="col" style="border: 3px solid #000000 !important;">Nazwisko</th>
+                <th scope="col" style="border: 3px solid #000000 !important;">Obecny</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr style="border: 3px solid #000000 !important;">
+                <td style="border: 3px solid #000000 !important;">@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</td>
+                <td style="border: 3px solid #000000 !important;">@item.GodzinaZajec</td>
+                <td style="border: 3px solid #000000 !important;">@item.Przedmiot</td>
+                <td style="border: 3px solid #000000 !important;">@item.Imie</td>
+                <td style="border: 3px solid #000000 !important;">@item.Nazwisko</td>
+                <td style="border: 3px solid #000000 !important;">@item.CzyObecny</td>
+            </tr>
+        }
+    </table>
+}
+
+
+
+

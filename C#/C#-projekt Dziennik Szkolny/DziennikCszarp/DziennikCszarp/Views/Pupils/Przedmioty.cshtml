@@ -1,0 +1,24 @@
+﻿@model DziennikCszarp.Models.Pupils
+@{
+    ViewBag.Title = "Pupils";
+    Layout = "~/Views/Shared/_LayoutN.cshtml";
+}
+@using (Html.BeginForm("Ocenki", "Pupils"))
+{
+    @Html.ValidationSummary(true)
+    <h3>Wybierz klasę oraz przedmiot</h3>
+    @Html.DropDownListFor(model => model.IDPrzedmiotu, Model.Przedmioty, "Wybierz Przedmiot",
+        new
+        {
+            @class = "form-control", size = "1", style = "max-width: 200px;", required = "required",  @id = "ddlProject" 
+
+        })
+    <br />
+    <input type="hidden" id="hdnProjectName" name="ProjectName" />
+    <input type="submit" value="Wyświetl" class="btn btn-dark " />
+    <script>
+        $("#ddlProject").on("change", function () {
+            $("#hdnProjectName").val($(this).find("option:selected").text());
+        });
+    </script>
+}

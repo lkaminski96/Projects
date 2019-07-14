@@ -1,0 +1,97 @@
+﻿@model DziennikCszarp.Models.Oceny
+@{
+    ViewBag.Title = "EditGrade";
+    Layout = "~/Views/Shared/_LayoutN.cshtml";
+}
+@using (Html.BeginForm("EditGrade", "Pupils"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.IDOceny)
+    <div class="jumbotron" style="width: 50%; margin: auto;">
+        <h1 class="display-3">Edytuj Ocenę</h1>
+        <div class="form-group">
+            @Html.LabelFor(model => model.NrWDzienniku, new { @class = "control-label col-sm-2", style = "font-size: 15px" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.NrWDzienniku,
+                    new {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control",
+                            style = "width: 300px",
+                            disabled="disabled",
+                            required = "required"
+                        }
+                    })
+                @Html.ValidationMessageFor(model => model.NrWDzienniku, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Imie, new { @class = "control-label col-sm-2", style = "font-size: 15px" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Imie,
+                    new {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control",
+                            style = "width: 300px",
+                            disabled = "disabled",
+                            required = "required"
+                        }
+                    })
+                @Html.ValidationMessageFor(model => model.Imie, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nazwisko, new { @class = "control-label col-sm-2", style = "font-size: 15px" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Nazwisko,
+                    new {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control",
+                            style = "width: 300px",
+                            disabled = "disabled",
+                            required = "required"
+                        }
+                    })
+                @Html.ValidationMessageFor(model => model.Nazwisko, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ocena, new { @class = "control-label col-sm-2", style = "font-size: 15px" })
+            <div class="col-sm-10">
+                @Html.DropDownListFor(model => model.Ocena, Model.Grades, null,
+                    new
+                    {
+                        @class = "form-control",
+                        size = "1",
+                        style = "width: 300px",
+                        required = "required"
+                    })
+                @Html.ValidationMessageFor(model => model.Ocena, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Typ, new { @class = "control-label col-sm-2", style = "font-size: 15px" })
+            <div class="col-sm-10">
+                @Html.DropDownListFor(model => model.Typ, Model.Types, null,
+                    new
+                    {
+                        @class = "form-control",
+                        size = "1",
+                        style = "width: 300px",
+                        required = "required"
+                    })
+                @Html.ValidationMessageFor(model => model.Typ, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-8">
+                <input type="submit" value="Zatwierdź zmiany" class="btn btn-success btn-lg" />
+                <a href="@Url.Action("Ocenki", "Pupils")" class="btn btn-danger btn-lg">Anuluj</a>
+            </div>
+        </div>
+
+    </div>
+}

@@ -1,0 +1,37 @@
+﻿@model DziennikCszarp.Models.Pupils
+@{
+    ViewBag.Title = "Obecnosci";
+    Layout = "~/Views/Shared/_LayoutN.cshtml";
+}
+@using (Html.BeginForm("Presents", "Pupils"))
+{
+    <h3>Wybierz Datę</h3>
+    <div class="form-group input-group-sm">
+        @Html.EditorFor(model => model.Date,
+       new
+       {
+           data = Model.Date, htmlAttributes =
+           new
+           {
+                @class = "form-control datepicker", required = "required" 
+           }
+       })
+    </div>
+    @Html.ValidationSummary(true)
+    <h3>Wybierz klasę oraz przedmiot</h3>
+    @Html.DropDownListFor(model => model.IDPrzedmiotu, Model.Przedmioty, "Wybierz Przedmiot", 
+        new
+        {
+            @class = "form-control", size = "1", style = "max-width: 200px;", required = "required", @id = "ddlProject" 
+        })
+    <br />
+    <input type="hidden" id="hdnProjectName" name="ProjectName" />
+    <input type="submit" value="Wyświetl" class="btn btn-dark " />
+    <script>
+        $("#ddlProject").on("change", function () {
+            $("#hdnProjectName").val($(this).find("option:selected").text());
+        });
+    </script>
+}
+
+
