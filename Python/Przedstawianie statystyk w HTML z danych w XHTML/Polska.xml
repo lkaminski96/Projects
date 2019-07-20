@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root xmlns:wb="http://www.worldbank.org">
+  <data>    
+    <record>
+      <field name="Country or Area" key="POL">Poland</field>
+      <field name="Item" key="AG.LND.ARBL.HA">Arable land (hectares)</field>
+      <field name="Year">2016</field>
+      <field name="Value" />
+    </record>
+    <record>
+      <field name="Country or Area" key="POL">Poland</field>
+      <field name="Item" key="AG.LND.ARBL.HA">Arable land (hectares)</field>
+      <field name="Year">2017</field>
+      <field name="Value" />
+    </record>
+    <record>
+      <field name="Country or Area" key="POL">Poland</field>
+      <field name="Item" key="AG.LND.AGRI.ZS">Agricultural land (% of land area)</field>
+      <field name="Year">1960</field>
+      <field name="Value" />
+    </record>
+    <record>
+      <field name="Country or Area" key="POL">Poland</field>
+      <field name="Item" key="AG.LND.AGRI.ZS">Agricultural land (% of land area)</field>
+      <field name="Year">1961</field>
+      <field name="Value">66.3488850435862</field>
+    </record>
+    <record>
+      <field name="Country or Area" key="POL">Poland</field>
+      <field name="Item" key="AG.LND.AGRI.ZS">Agricultural land (% of land area)</field>
+      <field name="Year">1962</field>
+      <field name="Value">66.1529922622351</field>
+    </record>
+    <record>
+      <field name="Country or Area" key="POL">Poland</field>
+      <field name="Item" key="AG.LND.AGRI.ZS">Agricultural land (% of land area)</field>
+      <field name="Year">1963</field>
+      <field name="Value">65.8983316464788</field>
+    </record>
+    <record>
+      <field name="Country or Area" key="POL">Poland</field>
+      <field name="Item" key="AG.LND.AGRI.ZS">Agricultural land (% of land area)</field>
+      <field name="Year">1964</field>
+      <field name="Value">65.7220281432629</field>
+    </record>
+    <record>
+      <field name="Country or Area" key="POL">Poland</field>
+      <field name="Item" key="AG.LND.AGRI.ZS">Agricultural land (% of land area)</field>
+      <field name="Year">1965</field>
+      <field name="Value">65.1212902804532</field>
+    </record>
+    <record>
+      <field name="Country or Area" key="POL">Poland</field>
+      <field name="Item" key="AG.LND.AGRI.ZS">Agricultural land (% of land area)</field>
+      <field name="Year">1966</field>
+      <field name="Value">65.1245551601424</field>
+    </record>
+    <record>
+      <field name="Country or Area" key="POL">Poland</field>
+      <field name="Item" key="AG.LND.AGRI.ZS">Agricultural land (% of land area)</field>
+      <field name="Year">1967</field>
+      <field name="Value">64.7066505599269</field>
+    </record>
+  </data>
+</Root>
