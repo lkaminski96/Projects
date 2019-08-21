@@ -1,0 +1,20 @@
+{% extends 'books/base.html'%}
+{% block content %}
+    <!-- Form for adding a book. -->
+    <form method="POST">
+        {% csrf_token %}
+        {{ author_form.as_p }}
+        <small>If you want to add more authors just add another author after ',' e.g. Author1, Author2, Author3... .</small>
+        {{ book_form.as_p }}
+        {% for isbn_form in isbn_forms %}
+            {{ isbn_form.as_p }}
+        {% endfor %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color:red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %} 
+        <button type="submit"> Add Book</button>
+    </form>
+    
+{% endblock %}

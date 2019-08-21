@@ -1,0 +1,15 @@
+{% extends 'books/base.html' %}
+{% block content %}
+  <!-- Form for importing books -->
+  <form method="POST">
+    {%csrf_token%}
+    <p>Search <input name="search" value='{{ request.POST.search }}' type="text" placeholder="Text..." required=True></p>
+    <p>Author <input name="author" value='{{ request.POST.author }}' type="text" placeholder="Author..."></p>
+    <p>Title <input name="title" value='{{ request.POST.title }}' type="text" placeholder="Title..."> </p>
+    <p>ISBN(10 or 13 numbers) <input name="isbn" value='{{ request.POST.isbn }}' type="text" placeholder="ISBN..." pattern="(^\d.{10,})" maxlength=13> </p>
+    <button type="submit">
+      Import
+    </button>
+  </form>
+{% endblock %}
+

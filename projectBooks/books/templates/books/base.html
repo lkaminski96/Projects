@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>STX Bookshop</title>
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+        
+        <!-- Theme CSS - Includes Bootstrap -->
+        <link href="{% static 'books/css/creative.css' %}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'books/css/style.css' %}">
+    </head>
+    <body id="page-top">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light py-3" id="mainNav">
+            <div class="container" style="width:100%;">
+            <a class="navbar-brand js-scroll-trigger" href="{% url 'books:book-list' %}">Bookstore</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="{% url 'books:book-list' %}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle js-scroll-trigger" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Books
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'books:add-book' %}">Add</a>
+                        <a class="dropdown-item" href="{% url 'books:import-books' %}">Import</a>
+                        <a class="dropdown-item" href="{% url 'books:rest' %}">REST</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Content for other templates -->
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="{% static 'books/vendor/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'books/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    </body>
+</html>

@@ -1,0 +1,84 @@
+{% extends 'books/base.html' %}
+{% block content%}
+  <!-- Search content form -->
+  <div class="search-container">
+      <form method="GET">
+        <input class="searchfield" id="searchbox" name="q" value='{{ request.GET.q }}' type="search" placeholder="Search...">
+        <select name="option" value='{{ request.GET.option }}'>
+          <option>Authors</option>
+          <option>Title</option>
+          <option>Language</option>
+        </select>
+        Date <input name="date" value='{{ request.GET.date }}' type="text" placeholder="YYYY-MM-DD" maxlength=10 pattern="/(^\d.{4,})\-?(^\d{0,2})\-?(^\d{0,2})">
+        <button type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+  </div>
+  {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="/books?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q}}{% endif %}{% if request.GET.option %}&option={{ request.GET.option}}{% endif %}{% if request.GET.date %}&date={{ request.GET.date}}{% endif %} "><</a>
+                {% endif %}
+                <span class="page-current">
+                      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="/books?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q}}{% endif %}{% if request.GET.option %}&option={{ request.GET.option}}{% endif %}{% if request.GET.date %}&date={{ request.GET.date}}{% endif %} ">></a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+  {% if books_list %}
+      <div class="container content-of-carts">
+          <!-- Printing message if appears-->
+          {% if messages %}
+          {% for message in messages %}
+            <p style="color:green;">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+          <div class="row">
+            <!-- Listing books -->
+            {% for book in books_list %}
+            <div class="col-sm-12 single-cart">
+                <p>Title <b>{{book.title}}</b></p>
+                <p>Authors: </p>
+                {% for author in book.authors.all %}<p><b>{{author.fullName}}</b></p>  {% endfor %}
+                <p>Published Date: <b>{{book.publishedDate}}</b></p>
+                <p>IndustryIdentifiers: </p>
+                {% for identifier in book.industryIdentifiers.all %}<p><b> {{identifier}}</b></p> {% endfor %}
+                <p>PageCount: <b>{{book.pageCount}}</b></p>
+                <p>ImageLinks: </p>
+                <a style="text-decoration: none" href="{{book.smallThumbnail}}"><img src="{{book.smallThumbnail}}"></a>
+                <a style="text-decoration: none" href="{{book.thumbnail}}"><img src="{{book.thumbnail}}"></a>
+                <p>Language: <b>{{book.language}}</b></p>
+            </div>
+            <br>
+            {% endfor %}
+        </div>
+      </div>
+      <!-- Pagination combined with searching & filtering-->
+      {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="/books?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q}}{% endif %}{% if request.GET.option %}&option={{ request.GET.option}}{% endif %}{% if request.GET.date %}&date={{ request.GET.date}}{% endif %} "><</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="/books?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q}}{% endif %}{% if request.GET.option %}&option={{ request.GET.option}}{% endif %}{% if request.GET.date %}&date={{ request.GET.date}}{% endif %} ">></a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+  {% else %}
+      <p>No books are available.</p>
+  {% endif %}
+{% endblock %}
+
+
+        
+  

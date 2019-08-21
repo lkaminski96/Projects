@@ -1,0 +1,47 @@
+
+input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border-style: solid;
+}
+.search-container button:hover {
+    background: #ccc;
+}
+
+.search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    cursor: pointer;
+  }
+
+.single-cart{
+	padding: 30px;
+	
+	margin-top: 30px;
+	background-color: #fefefe;
+	-webkit-box-shadow: 0px 0px 14px -4px rgba(0,0,0,0.85);
+    -moz-box-shadow: 0px 0px 14px -4px rgba(0,0,0,0.85);
+    box-shadow: 0px 0px 14px -4px rgba(0,0,0,0.85);
+}
+
+.single-cart:first-child{
+	margin-top: 0px;
+}
+
+.content-of-carts{
+	padding-top: 30px;
+}
+
+@media (max-width: 580px) {
+	.single-cart{
+	padding: 10px;
+	-webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
+	}
+}
